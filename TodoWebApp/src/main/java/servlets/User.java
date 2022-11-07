@@ -13,13 +13,12 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(name = "UserHandler", urlPatterns = "/user")
 public class User extends HttpServlet {
 	
-	// LOGIN
+	// logout
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
-		String email = getParameter(req,"email");
-		String password = getParameter(req,"password");
-		System.out.println("get");
+		req.getSession().invalidate();
+		res.sendRedirect("index.jsp");
 	}
 	
 	// SIGNUP

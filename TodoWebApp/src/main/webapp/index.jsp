@@ -84,10 +84,21 @@ else  {
 %>
 
 	<ul>
-		<% for(Todo todo : todos) {  %>
+		
+		<% for(int i=0;i<todos.size();i++) { %>
 			
-			<p> <%=todo.getDescription() %></p>
+			<div style="display: flex; align-items: center;">
+			<p style="text-decoration: <%= todos.get(i).isDone() ? "line-through" : "none"%>"> 
+				<a href="handleTask?index=<%=i%>" style="text-decoration: none" > <%=todos.get(i).getDescription() %> </a>
+				
+				<span style="padding-left: 5px">
+				<form action="handleTask?index=<%=i%>" method="post" style="display: inline;">
+ 					<button type="submit" >-</button>
+ 				</form>
+ 				</span>
+			</p>
 			
+			</div>
 	<%	}%>
 	</ul>
 

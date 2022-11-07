@@ -20,6 +20,11 @@ public class Todo {
 	public boolean isDone() {
 		return done;
 	}
+	
+	public void changeDone()
+	{
+		setDone(!done);
+	}
 
 	public void setDone(boolean done) {
 		this.done = done;
